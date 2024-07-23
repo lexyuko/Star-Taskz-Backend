@@ -28,7 +28,7 @@ public class UserController {
 // Tested & Trusted
     @PostMapping("/register")
     protected ResponseEntity<User> registerUser(@RequestBody User user) {
-        return new ResponseEntity<>(userService.registerUser(user), HttpStatus.CREATED);
+        return new ResponseEntity<>(userService.registerUser(user), HttpStatus.OK);
     }
 
     // login endpoint
@@ -50,12 +50,12 @@ public class UserController {
 // Tested & Trusted
     @GetMapping("/{id}")
     protected ResponseEntity<User> getSingleUser(@PathVariable String id) {
-        return new ResponseEntity<>(userService.getOneUser(id), HttpStatus.FOUND);
+        return new ResponseEntity<>(userService.getOneUser(id), HttpStatus.OK);
     }
 // get user by email
     @GetMapping("/get-by-mail/{email}")
     protected ResponseEntity<User> getSingleUserByEmail(@PathVariable String email) {
-        return new ResponseEntity<>(userService.getOneUserByEmail(email), HttpStatus.FOUND);
+        return new ResponseEntity<>(userService.getOneUserByEmail(email), HttpStatus.OK);
     }
 
     @PostMapping("/upload-profileImage/{userId}")
@@ -104,6 +104,7 @@ public class UserController {
         Date dateOfBirth = dateOfBirthEntity.getDateOfBirth();
         return new ResponseEntity<>(userService.updateDateOfBirth(userId, dateOfBirth),HttpStatus.OK);
     }
+
 
 
     // get user by email

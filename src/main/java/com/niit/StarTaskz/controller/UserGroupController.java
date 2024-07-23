@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @RequestMapping("star-taskz/api/group")
 @RestController
@@ -23,20 +24,20 @@ public class UserGroupController {
     // endpoint to get single group created by user
     @GetMapping("/get-group/{workspaceId}/{groupId}")
     public ResponseEntity<UserGroup> getSingleGroup(@PathVariable String workspaceId, @PathVariable String groupId){
-        return new ResponseEntity<>(groupService.getGroup(workspaceId,groupId),HttpStatus.FOUND);
+        return new ResponseEntity<>(groupService.getGroup(workspaceId,groupId),HttpStatus.OK);
     }
 
     // endpoint to create a group -
     @PostMapping("/create-group/{workSpaceId}/{creatorId}")
     protected ResponseEntity<UserGroup> createGroup(@PathVariable String workSpaceId, @RequestBody UserGroup group, @PathVariable String creatorId){
 
-        return new ResponseEntity<>(groupService.createGroup(workSpaceId,group,creatorId),HttpStatus.CREATED);
+        return new ResponseEntity<>(groupService.createGroup(workSpaceId,group,creatorId),HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/" +
-            "{workSpaceId}/{groupId}/")
-    protected ResponseEntity<String> deleteGroup(@PathVariable String workSpaceId ,@PathVariable String groupId){
-        return new ResponseEntity<>(groupService.deleteGroup(workSpaceId,groupId),HttpStatus.OK);
+            "{workSpaceId}/{creatorId}/{groupId}/")
+    protected ResponseEntity<List<UserGroup>> deleteGroup(@PathVariable String workSpaceId ,@PathVariable String creatorId, @PathVariable String groupId){
+        return new ResponseEntity<>(groupService.deleteGroup(workSpaceId,creatorId,groupId),HttpStatus.OK);
 
     }
 
@@ -76,7 +77,7 @@ public class UserGroupController {
 
 
     @PostMapping("/send-groupMessage/{workspaceId}/{groupId}/{senderId}")
-    protected ResponseEntity<String> sendMessage(@PathVariable String senderId,@PathVariable String groupId, @PathVariable String workspaceId, @RequestBody Message message){
+    protected ResponseEntity<Message> sendMessage(@PathVariable String senderId,@PathVariable String groupId, @PathVariable String workspaceId, @RequestBody Message message){
         return new ResponseEntity<>(groupService.sendMessage(workspaceId,groupId,senderId,message),HttpStatus.OK);
     }
 

@@ -73,12 +73,13 @@ public class GroupService {
     }
 
     // delete group
-    public String deleteGroup(String workSpaceId, String creatorId){
+    public List<UserGroup> deleteGroup(String workSpaceId, String creatorId, String groupId){
         WorkSpace workSpace = workspaceRepo.findById(workSpaceId).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"workspace not found!"));
         if(workSpace.getCreator().equals(creatorId)){
-        workSpace.setGroups(new ArrayList<>());
-        workspaceRepo.save(workSpace);
-        return "group deleted!";
+            UserGroup group = getGroup(workSpaceId,groupId);
+        workSpace.getGroups().remove(group);
+        WorkSpace updatedWorkspace = workspaceRepo.save(workSpace);
+        return updatedWorkspace.getGroups();
         }
         else {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED,"you are not the creator");
@@ -159,7 +160,7 @@ public class GroupService {
     }
 
 
-    public String sendMessage(String workspaceId,String groupId,String senderId, Message message){
+    public Message sendMessage(String workspaceId,String groupId,String senderId, Message message){
         WorkSpace workSpace = workspaceRepo.findById(workspaceId).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND,"workspace not found!"));
         List<UserGroup> groups = workSpace.getGroups();
         User sender = userService.getOneUser(senderId);
@@ -180,7 +181,7 @@ public class GroupService {
 
         }
 
+        return message;
 
-        return "message sent";
     }
 }
