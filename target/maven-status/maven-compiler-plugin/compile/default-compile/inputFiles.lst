@@ -19,6 +19,7 @@ C:\Users\User\Documents\Star-Taskz-Backend\src\main\java\com\niit\StarTaskz\mode
 C:\Users\User\Documents\Star-Taskz-Backend\src\main\java\com\niit\StarTaskz\model\dto_classes\collaboration_workspace\WorkspaceTitle.java
 C:\Users\User\Documents\Star-Taskz-Backend\src\main\java\com\niit\StarTaskz\model\dto_classes\StatusDTO.java
 C:\Users\User\Documents\Star-Taskz-Backend\src\main\java\com\niit\StarTaskz\model\dto_classes\task\DateTimeDTO.java
+C:\Users\User\Documents\Star-Taskz-Backend\src\main\java\com\niit\StarTaskz\model\dto_classes\task\TaskCategoryDTO.java
 C:\Users\User\Documents\Star-Taskz-Backend\src\main\java\com\niit\StarTaskz\model\dto_classes\task\TaskNameDTO.java
 C:\Users\User\Documents\Star-Taskz-Backend\src\main\java\com\niit\StarTaskz\model\dto_classes\user\EmailDTO.java
 C:\Users\User\Documents\Star-Taskz-Backend\src\main\java\com\niit\StarTaskz\model\dto_classes\user\LoginDTO.java
@@ -27,6 +28,7 @@ C:\Users\User\Documents\Star-Taskz-Backend\src\main\java\com\niit\StarTaskz\mode
 C:\Users\User\Documents\Star-Taskz-Backend\src\main\java\com\niit\StarTaskz\model\dto_classes\user\UserPasswordDTO.java
 C:\Users\User\Documents\Star-Taskz-Backend\src\main\java\com\niit\StarTaskz\model\task\Status.java
 C:\Users\User\Documents\Star-Taskz-Backend\src\main\java\com\niit\StarTaskz\model\task\Task.java
+C:\Users\User\Documents\Star-Taskz-Backend\src\main\java\com\niit\StarTaskz\model\task\TaskCategory.java
 C:\Users\User\Documents\Star-Taskz-Backend\src\main\java\com\niit\StarTaskz\model\task\TaskSteps.java
 C:\Users\User\Documents\Star-Taskz-Backend\src\main\java\com\niit\StarTaskz\model\task\TaskStepsSerializer.java
 C:\Users\User\Documents\Star-Taskz-Backend\src\main\java\com\niit\StarTaskz\model\user\AccountType.java
